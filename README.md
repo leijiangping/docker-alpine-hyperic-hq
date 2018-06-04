@@ -17,7 +17,7 @@ This image is intended to be a base image for your projects, so you may use it l
 FROM cosmomill/alpine-hyperic-hq
 
 # Optional, import data from exported archive to target Hyperic HQ Server and database on container initialization. 
-ADD hq-migration-export-5.x.x.tgz /docker-entrypoint-import.d/
+COPY hq-migration-export-5.x.x.tgz /docker-entrypoint-import.d/
 ```
 
 ```sh
@@ -25,7 +25,7 @@ $ docker build -t my_app .
 ```
 
 ```sh
-$ docker run -d -P --link <your cosmomill/docker-alpine-hyperic-db container>:db -v jasperserver_src:/usr/src/jasperserver -v hyperic_data:/opt/hyperic -e HYPERIC_DB_HOST="db" -p 7080:7080 my_app
+$ docker run -d -P --link <your cosmomill/docker-alpine-hyperic-db container>:db -v hyperic_data:/opt/hyperic -e HYPERIC_DB_HOST="db" -p 7080:7080 my_app
 ```
 
 The default list of ENV variables is:
