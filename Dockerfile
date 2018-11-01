@@ -38,7 +38,7 @@ RUN mkdir -p /usr/lib/jvm/java-$JAVA_VERSION-oracle \
 	&& ln -s $JAVA_HOME/jre/bin/* /usr/bin/
 
 # download and extract hyperic
-ENV HYPERIC_DOWNLOAD_URL https://sourceforge.net/projects/hyperic-hq/files/Hyperic%20$HYPERIC_VERSION/hyperic-hq-installer-noJRE-tar-$HYPERIC_VERSION.tar.gz
+ENV HYPERIC_DOWNLOAD_URL https://sourceforge.net/projects/hyperichq-zh-cn/files/hyperic-zh-$HYPERIC_VERSION/hyperic-hq-installer-noJRE-tar-$HYPERIC_VERSION.tar.gz
 
 RUN mkdir -p /opt/hyperic \
 	&& curl -f#L $HYPERIC_DOWNLOAD_URL | bsdtar -C /opt/hyperic -xf-
